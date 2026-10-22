@@ -5,6 +5,20 @@ const app = express();
 const PORT = 3000;
 
 app.use(cors());
+
+const allowedOrigins = [
+    process.env.CORS_ORIGIN,          // https://tu-proyecto.vercel.app
+    "http://localhost:5173"            // desarrollo local
+].filter(Boolean);
+
+app.use(cors({
+    origin: allowedOrigins,
+    credentials: true   // solo si usas cookies
+}));
+
+
+
+
 app.use(express.json());
 
 const usuarioRouter = require("./routes/usuario.routers");
