@@ -2,9 +2,7 @@ const express = require("express");
 const cors = require("cors"); 
 const app = express();
 
-const PORT = 3000;
-
-app.use(cors());
+const PORT = 5000;
 
 const allowedOrigins = [
     process.env.CORS_ORIGIN,          // https://tu-proyecto.vercel.app
@@ -15,9 +13,6 @@ app.use(cors({
     origin: allowedOrigins,
     credentials: true   // solo si usas cookies
 }));
-
-
-
 
 app.use(express.json());
 
